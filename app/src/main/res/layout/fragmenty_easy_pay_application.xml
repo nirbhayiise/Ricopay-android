@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    >
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingConstraints">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/all_fragment_bg"
+
+        android:gravity="center"
+        tools:ignore="MissingConstraints">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:background="@drawable/all_fragment_bg"
+        android:layout_height="fill_parent">
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+
+        android:layout_marginRight="20dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/avn_bold"
+
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+
+                android:id="@+id/upld"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Upload"
+                android:visibility="gone"
+                android:fontFamily="@font/avn_bold"
+                android:padding="10dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Account Number"
+            android:fontFamily="@font/avn_bold"
+            android:padding="10dp"/>
+        <EditText
+            android:id="@+id/accountno"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:inputType="number"
+            android:hint="Account Number"
+            android:singleLine="true"
+            android:fontFamily="@font/avn"
+            android:paddingLeft="10dp"
+            android:background="@drawable/all_fragment_bg"
+            />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Account Officer"
+            android:fontFamily="@font/avn_bold"
+            android:padding="10dp"/>
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/staffls"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="40dp"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Product"
+            android:fontFamily="@font/avn_bold"
+            android:padding="10dp"/>
+        <EditText
+            android:id="@+id/pname"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:hint="Product"
+            android:singleLine="true"
+            android:fontFamily="@font/avn"
+            android:paddingLeft="10dp"
+            android:background="@drawable/all_fragment_bg"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Account Type"
+            android:fontFamily="@font/avn_bold"
+            android:padding="10dp"/>
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/acc_typ"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="40dp"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Pay Type"
+            android:fontFamily="@font/avn_bold"
+            android:padding="10dp"/>
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/paymode"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="40dp"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Amount"
+            android:fontFamily="@font/avn_bold"
+            android:padding="10dp"/>
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:inputType="number"
+            android:hint="Amount"
+            android:singleLine="true"
+            android:fontFamily="@font/avn"
+            android:paddingLeft="10dp"
+            android:background="@drawable/all_fragment_bg"
+            />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Reg. Fee"
+            android:fontFamily="@font/avn_bold"
+            android:padding="10dp"/>
+        <EditText
+            android:id="@+id/regfee"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:inputType="number"
+            android:hint="Reg. Fee"
+            android:singleLine="true"
+            android:fontFamily="@font/avn"
+            android:paddingLeft="10dp"
+            android:background="@drawable/all_fragment_bg"
+            />
+    </LinearLayout>
+    </LinearLayout>
+        <TextView
+            android:id="@+id/signbtn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:text="Save"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/avn"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="80dp"
+            android:background="@drawable/button_back" />
+    </LinearLayout>
+</ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
