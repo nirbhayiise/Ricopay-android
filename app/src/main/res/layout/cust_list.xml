@@ -87,11 +87,12 @@ android:gravity="center|right"
             android:orientation="horizontal"
             android:layout_height="wrap_content"
             android:layout_weight="1">
+
             <TextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Account no: #"
+                android:text="Account no: #"
                 android:gravity="center|left"
                 android:fontFamily="@font/avn_bold"
 
@@ -103,6 +104,11 @@ android:gravity="center|right"
                 android:textSize="18dp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
+            <ImageView
+                android:id="@+id/copybtn"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/copy_ic"/>
             <TextView
                 android:id="@+id/acc_no"
                 android:layout_width="fill_parent"

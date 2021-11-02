@@ -20,14 +20,17 @@
 
 package com.np.ricopayapp.adpt;
 
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.graphics.Typeface;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -52,6 +55,7 @@ public class HistoryListAdapter extends RecyclerView
            {
         TextView cname,acc_no,addresstxt,mb;
         LinearLayout lay1;
+        ImageView copybtn;
 
 
 
@@ -61,6 +65,7 @@ public class HistoryListAdapter extends RecyclerView
             acc_no = (TextView) itemView.findViewById(R.id.acc_no);
             addresstxt = (TextView) itemView.findViewById(R.id.addresstxt);
             mb = (TextView) itemView.findViewById(R.id.mb);
+            copybtn = (ImageView) itemView.findViewById(R.id.copybtn);
 
             lay1 = (LinearLayout) itemView.findViewById(R.id.lay1);
 
@@ -100,6 +105,14 @@ public class HistoryListAdapter extends RecyclerView
         holder.acc_no.setText(mDataset.get(position).getAccNo());
         holder.addresstxt.setText(mDataset.get(position).getcAddress());
         holder.mb.setText(mDataset.get(position).getMobile());
+        holder.copybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager cm = (ClipboardManager)cntext.getSystemService(Context.CLIPBOARD_SERVICE);
+                cm.setText(holder.acc_no.getText());
+                Toast.makeText(cntext, "Account number  Copied  ", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 
