@@ -55,5 +55,13 @@ dependencies {
     implementation "androidx.cardview:cardview:1.0.0"
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'com.opensooq.supernova:gligar:1.1.0'
+    implementation 'com.mindorks:paracamera:0.2.2'
+
+    // Img lib
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+
+    // circl img
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 }

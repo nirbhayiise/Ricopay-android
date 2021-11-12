@@ -45,7 +45,7 @@ android:layout_marginBottom="50dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Customer Registeration"
+                        android:text="Customer Registration"
                         android:textSize="16sp"
                         android:textColor="@color/white"/>
 
@@ -111,7 +111,7 @@ android:layout_marginBottom="50dp"
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/til2"/>
+                        android:src="@drawable/deposit_ic"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -154,7 +154,7 @@ android:layout_marginBottom="50dp"
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/til4"/>
+                        android:src="@drawable/profile_ic"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

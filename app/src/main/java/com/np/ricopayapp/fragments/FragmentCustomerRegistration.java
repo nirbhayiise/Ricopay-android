@@ -3,9 +3,12 @@ package com.np.ricopayapp.fragments;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
@@ -56,6 +59,7 @@ import com.np.ricopayapp.services.SingletonObjectAccess;
 import com.np.ricopayapp.utils.AppData;
 import com.np.ricopayapp.utils.UserPreference;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -108,7 +112,58 @@ public class FragmentCustomerRegistration extends Fragment implements SpinnerDat
     LGASpinnerData_CallBack lgscallback;
     MaterialSpinner staetlist, stateorigin, lga, accountoffice, branch, paymode;
     String currentPhotoPath;
+    private static final int REQUEST_CAPTURE_IMAGE = 100;
+    private static final int CROP_IMAGE = 1;
+    private void openCameraIntent() {
+        Intent pictureIntent = new Intent(
+                MediaStore.ACTION_IMAGE_CAPTURE
+        );
+        if(pictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+            startActivityForResult(pictureIntent,
+                    REQUEST_CAPTURE_IMAGE);
+        }
+    }
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode,
+                                 Intent data) {
+        if (requestCode == REQUEST_CAPTURE_IMAGE &&
+                resultCode == RESULT_OK) {
+            if (data != null && data.getExtras() != null) {
+                Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
+                imgpro.setImageBitmap(imageBitmap);
+               // getImageUri(getActivity(),imageBitmap);
+                //Uri selectedImage1 = (Uri) data.getExtras().get("data");
+                selectedImage=getImageUri(getActivity(),imageBitmap);
+               // CropImage();
+                uploadFile(selectedImage, "1");
+            }
+        }
+    }
+    protected void CropImage() {
+        try {
+            Intent intent = new Intent("com.android.camera.action.CROP");
+            intent.setDataAndType(selectedImage, "image/*");
 
+            intent.putExtra("crop", "true");
+            intent.putExtra("outputX", 200);
+            intent.putExtra("outputY", 200);
+            intent.putExtra("aspectX", 3);
+            intent.putExtra("aspectY", 4);
+            intent.putExtra("scaleUpIfNeeded", true);
+            intent.putExtra("return-data", true);
+
+            startActivityForResult(intent, CROP_IMAGE);
+
+        } catch (ActivityNotFoundException e) {
+          //  Common.showToast(this, "Your device doesn't support the crop action!");
+        }
+    }
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.customer_regi_activity, container, false);
         cr_callback = this;
@@ -146,7 +201,7 @@ public class FragmentCustomerRegistration extends Fragment implements SpinnerDat
         paymentmodeList.add("Weekly");
         paymentmodeList.add("Monthly");
         paymentmodelistId.add("1");
-        paymentmodelistId.add("21");
+        paymentmodelistId.add("2");
         paymentmodelistId.add("3");
 
         headername = getActivity().findViewById(R.id.loanform);
@@ -250,9 +305,10 @@ public class FragmentCustomerRegistration extends Fragment implements SpinnerDat
                     public void onClick(DialogInterface dialog, int item) {
                         if (options[item].equals("Take Photo")) {
                             try {
+                                openCameraIntent();
 //                                Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
 //                                startActivityForResult(takePicture, 0);
-                                dispatchTakePictureIntent();
+                               // dispatchTakePictureIntent();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -316,6 +372,7 @@ public class FragmentCustomerRegistration extends Fragment implements SpinnerDat
                         // There are no request codes
                         Intent data = result.getData();
                         selectedImage = data.getData();
+                        CropImage();
                         Toast.makeText(getActivity(), ""+selectedImage, Toast.LENGTH_SHORT).show();
 
                         uploadFile(selectedImage, "1");

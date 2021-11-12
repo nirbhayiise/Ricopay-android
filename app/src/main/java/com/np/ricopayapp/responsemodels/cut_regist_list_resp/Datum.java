@@ -59,6 +59,11 @@ public class Datum {
     @SerializedName("amount")
     @Expose
     private String amount;
+
+    @SerializedName("dipositAmount")
+    @Expose
+    private String dipositAmount;
+
     @SerializedName("reg_fee")
     @Expose
     private String regFee;
@@ -128,6 +133,14 @@ public class Datum {
     @SerializedName("guarantor_mobile")
     @Expose
     private String guarantorMobile;
+
+    public String getDipositAmount() {
+        return dipositAmount;
+    }
+
+    public void setDipositAmount(String dipositAmount) {
+        this.dipositAmount = dipositAmount;
+    }
 
     public String getId() {
         return id;

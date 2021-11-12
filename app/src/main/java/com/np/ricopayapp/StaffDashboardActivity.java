@@ -31,6 +31,7 @@ import com.karumi.dexter.listener.DexterError;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+import com.np.ricopayapp.fragments.FragmentCustProfile;
 import com.np.ricopayapp.fragments.FragmentCustomerList;
 import com.np.ricopayapp.fragments.FragmentCustomerRegistration;
 import com.np.ricopayapp.fragments.FragmentEasypay_Application;
@@ -55,7 +56,7 @@ public class StaffDashboardActivity extends AppCompatActivity implements View.On
     private final int Delay_Time = 200;
     ImageView navbtnImg;
     LinearLayout navbtn;
-    TextView custList,headername,name,navhome,navprofile,navshopping,navcat,navcart,navmyorder,navorderhistry,navloanform,navloanpayback,
+    TextView custList,headername,name,navhome,navprofile,navshopping,navcat,navcart,navmyorder,custprofiles,navloanform,navloanpayback,
             navloanlist,navsavingform,navdepositform,navwithdrawel,navfixedsaving,navdepositlist,logout;
     DrawerLayout drawer;
 
@@ -112,6 +113,7 @@ public class StaffDashboardActivity extends AppCompatActivity implements View.On
         navcart = findViewById(R.id.navcart);
         navmyorder = findViewById(R.id.navmyorder);
         custList = findViewById(R.id.custList);
+        custprofiles = findViewById(R.id.custprofiles);
 
         logout = findViewById(R.id.logout);
         drawer = findViewById(R.id.drawer_layout);
@@ -124,6 +126,7 @@ public class StaffDashboardActivity extends AppCompatActivity implements View.On
         navcat.setOnClickListener(this);
         navcart.setOnClickListener(this);
         navmyorder.setOnClickListener(this);
+        custprofiles.setOnClickListener(this);
 
         logout.setOnClickListener(this);
         drawer.setOnClickListener(this);
@@ -234,6 +237,16 @@ public class StaffDashboardActivity extends AppCompatActivity implements View.On
                 break;
             case R.id.navmyorder:
                 changeFragment(new FragmentLoanCreate());
+                new Handler(Looper.myLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        closeDrawer();
+                    }
+                },Delay_Time);
+                break;
+
+            case R.id.custprofiles:
+                changeFragment(new FragmentCustProfile());
                 new Handler(Looper.myLooper()).postDelayed(new Runnable() {
                     @Override
                     public void run() {

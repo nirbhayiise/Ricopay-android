@@ -345,10 +345,10 @@ android:text="Nirbhay"
                     android:gravity="center"
                     android:layout_weight="0.6">
                     <TextView
-                        android:id="@+id/navorderhistry"
+                        android:id="@+id/custprofiles"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Customer Withdrawal"
+                        android:text="Customer Profiles"
                         android:gravity="center|left"
                         android:textColor="@color/white"
                         android:textSize="14dp" />
