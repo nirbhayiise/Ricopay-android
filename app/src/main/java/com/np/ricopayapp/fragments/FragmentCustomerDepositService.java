@@ -97,7 +97,7 @@ public class FragmentCustomerDepositService extends Fragment implements StaffLis
         depositbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DepositRepositry.getInstance().invokDeposit(accountno.getText().toString(),amount.getText().toString(),selectAccounttype,paymode, UserPreference.getUid(getActivity()),getActivity(),dpscallbck);
+                DepositRepositry.getInstance().invokDeposit(accountno.getText().toString(),amount.getText().toString(),paymode,selectAccounttype, UserPreference.getUid(getActivity()),getActivity(),dpscallbck);
             }
         });
         searchbtn.setOnClickListener(new View.OnClickListener() {

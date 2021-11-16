@@ -70,9 +70,9 @@ public class FragmentEasypay_Application extends Fragment implements StaffList_C
        paymentmodeList = new ArrayList<String>();
         paymentmodelistId = new ArrayList<String>();
 
-        paymentmodeList.add("Cash");
-        paymentmodeList.add("Online");
-        paymentmodeList.add("Bank");
+        paymentmodeList.add("Daily");
+        paymentmodeList.add("weekly");
+        paymentmodeList.add("monthly");
         paymentmodelistId.add("1");
         paymentmodelistId.add("2");
         paymentmodelistId.add("3");
